@@ -1,0 +1,25 @@
+(
+    name: "Rubber",
+
+    physics: (
+        density: 1.1,
+        friction: 0.9,
+        restitution: 0.85,
+    ),
+
+    acoustics: (
+        absorption: 0.8,
+        diffusion: 0.5,
+        acoustic_impedance: 1.0,
+        reflectivity: 0.05,
+        damping: 0.9,
+    ),
+
+    fluid: None,
+
+    render: (
+        color: (0.05, 0.05, 0.05, 1.0),
+        texture: None,
+        mesh: None,
+    ),
+)

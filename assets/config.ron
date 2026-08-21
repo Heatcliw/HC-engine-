@@ -1,0 +1,7 @@
+(
+    smoothing_length: 16.0,
+    rest_density: 1.0,
+    stiffness: 200.0,
+    viscosity: 0.15,
+    gravity: (0.0, -9.81),
+)
