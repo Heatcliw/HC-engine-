@@ -10,4 +10,6 @@ pub mod storage;
 pub use storage::*;
 pub use segment::*;
 
+pub use rectangle::*;
+
 pub use rand::Rng;

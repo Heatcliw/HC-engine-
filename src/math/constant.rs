@@ -4,6 +4,8 @@ pub const VEC2_ZERO: Vec2 = [0.0, 0.0];
 pub const SCALAR_ZERO: f32 = 0.0;
 
 pub const VEC2_X: Vec2 = [1.0, 0.0];
+pub const VEC2_Y: Vec2 = [0.0, 1.0];
+
 
 
 pub const MAX: f32 = std::f32::MAX;

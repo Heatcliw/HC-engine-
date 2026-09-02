@@ -52,6 +52,14 @@ pub fn lerp(a: Vec2, b: Vec2, t: f32) -> Vec2 {
 pub fn negative(v: Vec2) -> Vec2 {
     [-v[0], -v[1]]
 }
+#[inline]
+pub fn negative_absciss(v: Vec2) -> Vec2 {
+    [-v[0], v[1]]
+}
+#[inline]
+pub fn negative_ordinate(v: Vec2) -> Vec2 {
+    [v[0], -v[1]]
+}
 
 #[inline]
 pub fn rotate(v: Vec2, angle: f32) -> Vec2 {

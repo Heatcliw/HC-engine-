@@ -190,3 +190,29 @@ impl SamplePoint for Rhombus {
         )
     }
 }
+
+#[derive(Debug, Clone, Copy)]
+pub enum Diagonals {
+    One(f32),
+    Two([f32; 2]),
+}
+
+impl Shape {
+    pub fn diagonals(&self) -> Option<Diagonals> {
+        match self {
+            Shape::Square(square) => {
+                Some(Diagonals::One(square.diagonals()))
+            }
+
+            Shape::Rectangle(rect) => {
+                Some(Diagonals::One(rect.diagonals()))
+            }
+
+            Shape::Rhombus(rhombus) => {
+                Some(Diagonals::Two(rhombus.diagonals()))
+            }
+
+            _ => None,
+        }
+    }
+}

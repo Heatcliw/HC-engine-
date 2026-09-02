@@ -25,6 +25,7 @@ pub enum ShapeKind {
     Circle,
     Ellipse,
     Rectangle,
+    Square,
     Rhombus,
     Polygon,
 
@@ -41,6 +42,7 @@ pub enum Shape {
 
     Circle(Circle),
     Ellipse(Ellipse),
+    Square(Square),
     Rectangle (Rectangle),
     Rhombus(Rhombus),
     Polygon(Polygon),

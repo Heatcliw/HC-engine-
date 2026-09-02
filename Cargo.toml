@@ -8,7 +8,7 @@ description = "High-performance particle physics engine written in Rust."
 repository = "https://github.com/HeatCliw/HC-physics"
 
 [dependencies]
-bevy = "0.15"
+
 rand = "0.9"
 rayon = "1.10"
 serde = { version = "1.0", features = ["derive"] }

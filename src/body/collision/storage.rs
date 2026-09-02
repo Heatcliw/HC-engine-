@@ -1,19 +1,13 @@
 use crate::math::*;
 use serde::{Serialize, Deserialize};
 
-#[derive(
-    Default,
-    Debug,
-    Clone,
-    Copy,
-    PartialEq,
-    Eq,
-    PartialOrd,
-    Ord,
-    Hash,
-    Serialize,
-    Deserialize,
+#[derive( 
+    Default, Debug, Clone, 
+    Copy, PartialEq, Eq,
+    PartialOrd, Ord, Hash,
+    Serialize, Deserialize,
 )]
+
 pub struct ColliderId (pub usize);
 #[derive(Debug,Clone)]
 pub struct Collider {
