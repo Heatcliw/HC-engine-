@@ -1,5 +1,5 @@
-   0.053758300s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hc_physics", ["lib"], "C:\\Users\\i\\repo\\Hc-engine-\\src\\lib.rs", Edition2024) }
-   0.053806100s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-62f6521b34d0acd8\lib-hc_physics`
+   0.067703900s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hc_physics", ["lib"], "C:\\Users\\i\\repo\\Hc-engine-\\src\\lib.rs", Edition2024) }
+   0.067766700s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-62f6521b34d0acd8\lib-hc_physics`
 
 Caused by:
     Не удается найти указанный файл. (os error 2)
@@ -26,8 +26,8 @@ Stack backtrace:
   18: git_midx_writer_dump
   19: BaseThreadInitThunk
   20: RtlUserThreadStart
-   0.072043100s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("hc_physics", ["lib"], "C:\\Users\\i\\repo\\Hc-engine-\\src\\lib.rs", Edition2024) }
-   0.072082500s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-057399e0fc09b8c4\test-lib-hc_physics`
+   0.088809500s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("hc_physics", ["lib"], "C:\\Users\\i\\repo\\Hc-engine-\\src\\lib.rs", Edition2024) }
+   0.088835800s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc_physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-057399e0fc09b8c4\test-lib-hc_physics`
 
 Caused by:
     Не удается найти указанный файл. (os error 2)
@@ -54,8 +54,8 @@ Stack backtrace:
   18: git_midx_writer_dump
   19: BaseThreadInitThunk
   20: RtlUserThreadStart
-   0.073301700s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: false }/TargetInner { name: "hc-physics", doc: true, ..: with_path("C:\\Users\\i\\repo\\Hc-engine-\\src\\main.rs", Edition2024) }
-   0.073316100s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-5a5f71c0f59fe147\bin-hc-physics`
+   0.089642700s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: false }/TargetInner { name: "hc-physics", doc: true, ..: with_path("C:\\Users\\i\\repo\\Hc-engine-\\src\\main.rs", Edition2024) }
+   0.089658500s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-5a5f71c0f59fe147\bin-hc-physics`
 
 Caused by:
     Не удается найти указанный файл. (os error 2)
@@ -82,8 +82,8 @@ Stack backtrace:
   18: git_midx_writer_dump
   19: BaseThreadInitThunk
   20: RtlUserThreadStart
-   0.073707400s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: true }/TargetInner { name: "hc-physics", doc: true, ..: with_path("C:\\Users\\i\\repo\\Hc-engine-\\src\\main.rs", Edition2024) }
-   0.073720200s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-f1e4bb9ab00b44ad\test-bin-hc-physics`
+   0.090079500s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint: fingerprint error for hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)/Check { test: true }/TargetInner { name: "hc-physics", doc: true, ..: with_path("C:\\Users\\i\\repo\\Hc-engine-\\src\\main.rs", Edition2024) }
+   0.090093900s  INFO prepare_target{force=false package_id=hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-) target="hc-physics"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\Users\i\repo\Hc-engine-\target\debug\.fingerprint\hc-physics-f1e4bb9ab00b44ad\test-bin-hc-physics`
 
 Caused by:
     Не удается найти указанный файл. (os error 2)
@@ -111,6 +111,6 @@ Stack backtrace:
   19: BaseThreadInitThunk
   20: RtlUserThreadStart
     Checking hc-physics v0.1.0 (C:\Users\i\repo\Hc-engine-)
-error: could not compile `hc-physics` (lib test) due to 441 previous errors; 1 warning emitted
-warning: build failed, waiting for other jobs to finish...
 error: could not compile `hc-physics` (lib) due to 441 previous errors; 1 warning emitted
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `hc-physics` (lib test) due to 441 previous errors; 1 warning emitted
