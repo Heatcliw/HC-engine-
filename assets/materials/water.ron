@@ -1,0 +1,31 @@
+(
+    name: "Water",
+
+    physics: (
+        density: 1.0,
+        friction: 0.02,
+        restitution: 0.0,
+    ),
+
+    acoustics: (
+        absorption: 0.02,
+        diffusion: 0.95,
+        acoustic_impedance: 1.5,
+        reflectivity: 0.05,
+        damping: 0.1,
+    ),
+
+    fluid: Some((
+        viscosity: 0.02,
+        surface_tension: 0.3,
+        incompressibility: 0.95,
+    )),
+
+    render: (
+        color: (0.05, 0.35, 0.9, 0.7),
+        texture: Some("sprites/Sprite-0001.png"),
+        size: Some((32.0, 32.0)),
+        
+        mesh: None,
+    ),
+)

@@ -1,0 +1,25 @@
+(
+    name: "Wood",
+
+    physics: (
+        density: 0.7,
+        friction: 0.5,
+        restitution: 0.35,
+    ),
+
+    acoustics: (
+        absorption: 0.25,
+        diffusion: 0.7,
+        acoustic_impedance: 2.5,
+        reflectivity: 0.45,
+        damping: 0.15,
+    ),
+
+    fluid: None,
+
+    render: (
+        color: (0.55, 0.3, 0.12, 1.0),
+        texture: None,
+        mesh: None,
+    ),
+)

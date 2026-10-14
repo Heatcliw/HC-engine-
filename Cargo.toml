@@ -1,0 +1,31 @@
+[package]
+name = "hc-physics"
+version = "0.1.0"
+edition = "2024"
+authors = ["HeatCliw"]
+license = "MIT"
+description = "High-performance particle physics engine written in Rust."
+repository = "https://github.com/HeatCliw/HC-physics"
+
+[dependencies]
+
+rand = "0.9"
+rayon = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+ron = "0.8"
+log = "0.4"
+env_logger = "0.11"
+
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+strip = true
