@@ -1,4 +1,5 @@
 use crate::math::*;
+
 use rand::Rng;
 impl HasArea for Polygon {
     fn area(&self) -> f32 {
@@ -62,14 +63,15 @@ impl HasVertices for Polygon {
 
 impl HasAabb for Polygon {
     fn aabb(&self, transform: &Transform) -> Aabb {
-        let mut min = [f32::INFINITY; 2];
-        let mut max = [f32::NEG_INFINITY; 2];
+        let mut min = Vec2{ x: INFINITY,y: INFINITY };
+        let mut max = Vec2{ x: NEG_INFINITY,y: NEG_INFINITY };
+
 
         for vertex in &self.vertices() {
-            let scaled = [
-                vertex[0] * transform.scale[0],
-                vertex[1] * transform.scale[1],
-            ];
+            let scaled = Vec2 {
+                x: vertex.x * transform.scale.x,
+                y: vertex.y * transform.scale.y,
+            };
 
             let rotated = rotate(
                 scaled,
@@ -81,14 +83,17 @@ impl HasAabb for Polygon {
                 transform.center
             );
 
-            min[0] = min[0].min(world[0]);
-            min[1] = min[1].min(world[1]);
+            min.x = min.x.min(world.x);
+            min.y = min.y.min(world.y);
 
-            max[0] = max[0].max(world[0]);
-            max[1] = max[1].max(world[1]);
+            max.x = max.x.max(world.x);
+            max.y = max.y.max(world.y);
         }
 
-        Aabb { min, max }
+        Aabb { 
+             min, 
+             max 
+        }
     }
 }
 
@@ -114,10 +119,10 @@ impl SamplePoint for Polygon {
             v = 1.0 - v;
         }
 
-        [
-            a[0] + u * (b[0] - a[0]) + v * (c[0] - a[0]),
-            a[1] + u * (b[1] - a[1]) + v * (c[1] - a[1]),
-        ]
+        Vec2 {
+           x: a.x + u * (b.x - a.x) + v * (c.x - a.x),
+           y: a.y + u * (b.y - a.y) + v * (c.y - a.y),
+        }
     }
 }
 

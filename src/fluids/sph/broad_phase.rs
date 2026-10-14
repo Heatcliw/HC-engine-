@@ -14,8 +14,8 @@ fn cell_coord(pos: Vec2, h: f32) -> (i32, i32) {
         "smoothing_length must be greater than zero"
     );
     (
-        (pos[0] / h).floor() as i32,
-        (pos[1] / h).floor() as i32,
+        (pos.x / h).floor() as i32,
+        (pos.y / h).floor() as i32,
     )
 }
 

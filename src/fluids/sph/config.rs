@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 use crate::math::*;
+
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub struct SphConfig {
     pub smoothing_length: f32,
@@ -23,7 +24,7 @@ impl SphConfig {
             rest_density: 1.0,
             stiffness: 200.0,
             viscosity: 0.15,
-            gravity: [0.0, -9.81],
+            gravity: Vec2 {x: 0.0, y: -9.81},
         }
     }
 }

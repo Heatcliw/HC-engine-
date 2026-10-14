@@ -13,8 +13,8 @@ fn cell_coord(pos: Vec2, cell_size: f32) -> [i32; 2] {
         "cell_size must be greater than zero"
     );
     [
-        (pos[0] / cell_size).floor() as i32,
-        (pos[1] / cell_size).floor() as i32,
+        (pos.x / cell_size).floor() as i32,
+        (pos.y / cell_size).floor() as i32,
     ]
 }
 

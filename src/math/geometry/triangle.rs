@@ -32,14 +32,14 @@ impl HasHeight for Triangle {
 impl HasVertices for Triangle {
     type Output = [Vec2; 3]; 
     fn vertices(&self) -> Self::Output{
-        let a:Vec2 = [0.0, 0.0];
-        let b:Vec2 = [self.c, 0.0];
+        let a = Vec2 {x: 0.0, y: 0.0};
+        let b = Vec2 {x: self.c, y: 0.0};
         
         let x = (self.b * self.b + self.c * self.c - self.a * self.a) / (2.0 * self.c);
 
         let y = (self.b * self.b - x * x).max(SCALAR_ZERO).sqrt();
 
-        let c:Vec2 = [x,y]; 
+        let c = Vec2 { x, y }; 
 
         [
             a,
@@ -53,18 +53,18 @@ impl HasAabb for Triangle {
     fn aabb(&self, transform: &Transform) -> Aabb {
         let vertices = self.vertices();
 
-        let mut min = [f32::INFINITY; 2];
-        let mut max = [f32::NEG_INFINITY; 2];
+        let mut min = Vec2{ x: INFINITY,y: INFINITY };
+        let mut max = Vec2{ x: NEG_INFINITY,y: NEG_INFINITY };
 
         for vertex in vertices {
-            let x = vertex[0] + transform.center[0];
-            let y = vertex[1] + transform.center[1];
+            let x = vertex.x + transform.center.x;
+            let y = vertex.y + transform.center.y;
 
-            min[0] = min[0].min(x);
-            min[1] = min[1].min(y);
+            min.x = min.x.min(x);
+            min.y = min.y.min(y);
 
-            max[0] = max[0].max(x);
-            max[1] = max[1].max(y);
+            max.x = max.x.max(x);
+            max.y = max.y.max(y);
         }
 
         Aabb { min, max }

@@ -18,7 +18,7 @@ fn main() {
             side: 10.0,
             angle: math::PI / 3.0, // 60°
         }),
-        direction: [0.0, -1.0],
+        direction: math::Vec2 {x: 0.0,y: -1.0},
         speed: 30.0,
         particles_per_second: 400.0,
         spread: 0.02,

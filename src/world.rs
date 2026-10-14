@@ -9,10 +9,10 @@ impl WorldVertices for Polygon {
         self.local_vectors
             .iter()
             .map(|vertex| {
-                let scaled = [
-                    vertex[0] * transform.scale[0],
-                    vertex[1] * transform.scale[1],
-                ];
+                let scaled = Vec2 {
+                   x: vertex.x * transform.scale.x,
+                   y: vertex.y * transform.scale.y,
+                };
 
                 let rotated = rotate(
                     scaled,
