@@ -27,7 +27,10 @@ pub fn spiky_grad(r:Vec2,h:f32) -> Vec2 {
     let len = len_sq.sqrt();
     let k = -30.0 / (PI * h.powi(5));
     let f = k * (h-len).powi(2) / len;
-    [r[0] * f, r[1] * f]
+    Vec2 {
+        x: r.x * f, 
+        y: r.y * f
+    }
 }
 
 

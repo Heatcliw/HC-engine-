@@ -33,6 +33,7 @@ impl Emitter {
             Shape::Circle(s) => s.sample_point(rng),
             Shape::Ellipse(s) => s.sample_point(rng),
             Shape::Rectangle(s) => s.sample_point(rng),
+            Shape::Square(s) => s.sample_point(rng),
             Shape::Rhombus(s) => s.sample_point(rng),
             Shape::Polygon(s) => s.sample_point(rng),
             Shape::Triangle(s) => s.sample_point(rng)
@@ -47,10 +48,10 @@ impl Emitter {
         let angle = rng.random_range(-self.spread..=self.spread);
         let (sin, cos) = angle.sin_cos();
 
-        let dir = [
-            self.direction[0] * cos - self.direction[1] * sin,
-            self.direction[0] * sin + self.direction[1] * cos,
-        ];
+        let dir = Vec2 {
+           x: self.direction.x * cos - self.direction.y * sin,
+           y: self.direction.x * sin + self.direction.y * cos,
+        };
 
         let speed = self.speed * rng.random_range(0.8..1.2);
         Particle {
@@ -76,7 +77,7 @@ impl Emitter {
         
         Self {
             shape,
-            direction: [0.0, -1.0],
+            direction: Vec2 {x: 0.0, y: -1.0},
 
             speed: 120.0,
 

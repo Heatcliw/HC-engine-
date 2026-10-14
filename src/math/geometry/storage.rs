@@ -50,10 +50,14 @@ pub enum Shape {
     Triangle(Triangle)
 }
 #[derive(Debug,Clone)]
-pub struct Point(pub Vec2);
+pub struct Point {
+    pub positions: Vec2,
+}
 
 #[derive(Debug,Clone)]
-pub struct MultiPoint(pub Vec<Vec2>);
+pub struct MultiPoint { 
+    pub positions: Vec<Vec2>, 
+}
 
 #[derive(Debug,Clone)]
 pub struct Line{
@@ -94,6 +98,7 @@ pub struct Parallelogram {
 pub struct Ellipse {
     pub radius_x: f32,
     pub radius_y: f32,
+    pub delta: Vec2
 }
 
 #[derive(Debug,Clone)]

@@ -34,19 +34,20 @@ impl HasAabb for Ellipse {
         let ry = self.radius_y;
 
         Aabb {
-            min: [c[0] - rx, c[1] - ry],
-            max: [c[0] + rx, c[1] + ry],
+            min: Vec2 { x: c.x - rx, y: c.y - ry },
+            max: Vec2 { x: c.x + rx, y: c.y + ry },
         }
     }
 }
 
 impl HasRadius for Ellipse {
-    type Output = Vec2;
+    type Output = f32;
     fn radius(&self) -> Self::Output {
-        [
-            self.radius_x,
-            self.radius_y
-        ]
+        let theta = self.delta.y.atan2(self.delta.x);
+        let cos_t = theta.cos();
+        let sin_t = theta.sin();
+
+        (self.radius_x * self.radius_y) / ((self.radius_y * cos_t).powi(2) + (self.radius_x * sin_t).powi(2)).sqrt() 
     }
 }
 
@@ -75,8 +76,8 @@ impl HasAabb for Circle {
         let r = self.radius;
 
         Aabb {
-            min: [c[0] - r, c[1] - r],
-            max: [c[0] + r, c[1] + r],
+            min: Vec2 {x: c.x - r, y: c.y - r},
+            max: Vec2 {x:  c.x + r, y: c.y + r},
         }
     }
 }
@@ -93,10 +94,10 @@ impl SamplePoint for Circle {
         let angle = rng.random_range(0.0..TAU);
         let r = self.radius * rng.random::<f32>().sqrt();
 
-        [
-            angle.cos() * r,
-            angle.sin() * r,
-        ]
+        Vec2 {
+           x: angle.cos() * r,
+           y: angle.sin() * r,
+        }
     }
 }
 
@@ -105,9 +106,9 @@ impl SamplePoint for Ellipse {
         let angle = rng.random_range(0.0..TAU);
         let r = rng.random::<f32>().sqrt();
 
-        [
-            angle.cos() * self.radius_x * r,
-            angle.sin() * self.radius_y * r,
-        ]
+        Vec2 {
+           x: angle.cos() * self.radius_x * r,
+           y: angle.sin() * self.radius_y * r,
+        }
     }
 }

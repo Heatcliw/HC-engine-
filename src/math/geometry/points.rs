@@ -1,11 +1,13 @@
+
+
 use crate::math::*;
 
 impl HasAabb for Point {
     fn aabb(&self, transform: &Transform) -> Aabb {
-        let p = [
-            self.0[0] + transform.center[0],
-            self.0[1] + transform.center[1],
-        ];
+        let p = Vec2{
+            x: self.positions.x + transform.center.x,
+            y: self.positions.y + transform.center.y,
+        };
 
         Aabb {
             min: p,
@@ -16,24 +18,27 @@ impl HasAabb for Point {
 
 impl SamplePoint for Point {
     fn sample_point(&self, _: &mut impl rand::prelude::Rng) -> Vec2 {
-        self.0
+        Vec2 { 
+            x: self.positions.x, 
+            y: self.positions.y 
+        }
     }
 }
 
 impl HasAabb for MultiPoint {
     fn aabb(&self, transform: &Transform) -> Aabb {
-        let mut min = [f32::INFINITY; 2];
-        let mut max = [f32::NEG_INFINITY; 2];
+        let mut min = Vec2{ x: INFINITY,y: INFINITY };
+        let mut max = Vec2{ x: INFINITY,y: INFINITY };
 
-        for p in &self.0 {
-            let x = p[0] + transform.center[0];
-            let y = p[1] + transform.center[1];
+        for p in &self.positions {
+            let x = p.x + transform.center.x;
+            let y = p.y + transform.center.y;
 
-            min[0] = min[0].min(x);
-            min[1] = min[1].min(y);
+            min.x = min.x.min(x);
+            min.y = min.y.min(y);
 
-            max[0] = max[0].max(x);
-            max[1] = max[1].max(y);
+            max.x = max.x.max(x);
+            max.y = max.y.max(y);
         }
 
         Aabb { min, max }
@@ -42,31 +47,31 @@ impl HasAabb for MultiPoint {
 
 impl SamplePoint for MultiPoint {
     fn sample_point(&self, rng: &mut impl rand::Rng) -> Vec2 {
-        self.0[rng.random_range(0..self.0.len())]
+        self.positions[rng.random_range(0..self.positions.len())]
     }
 }
 
 impl HasAabb for Line {
     fn aabb(&self, transform: &Transform) -> Aabb {
-        let start = [
-            self.start[0] + transform.center[0],
-            self.start[1] + transform.center[1],
-        ];
+        let start = Vec2 {
+            x: self.start.x + transform.center.x,
+            y: self.start.y + transform.center.y,
+        };
 
-        let end = [
-            self.end[0] + transform.center[0],
-            self.end[1] + transform.center[1],
-        ];
+        let end = Vec2 {
+            x: self.end.x + transform.center.x,
+            y: self.end.y + transform.center.y,
+        };
 
         Aabb {
-            min: [
-                start[0].min(end[0]),
-                start[1].min(end[1]),
-            ],
-            max: [
-                start[0].max(end[0]),
-                start[1].max(end[1]),
-            ],
+            min: Vec2 {
+                x: start.x.min(end.x),
+                y: start.y.min(end.y),
+            },
+            max: Vec2 {
+                x: start.x.max(end.x),
+                y: start.y.max(end.y),
+            },
         }
     }
 }
@@ -81,9 +86,9 @@ impl SamplePoint for Line {
             0.0
         };
 
-        [
-            self.start[0] + (self.end[0] - self.start[0]) * t,
-            self.start[1] + (self.end[1] - self.start[1]) * t,
-        ]
+        Vec2 {
+            x: self.start.x + (self.end.x - self.start.x) * t,
+            y: self.start.y + (self.end.y - self.start.y) * t,
+        }
     }
 }

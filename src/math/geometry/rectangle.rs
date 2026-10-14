@@ -26,10 +26,10 @@ impl HasVertices for Square {
         let h = self.side * 0.5;
 
         [
-            [-h , -h ], 
-            [ h , -h ],
-            [ h ,  h ], 
-            [-h , h ]
+            Vec2 {x: -h, y: -h }, 
+            Vec2 {x: h, y: -h },
+            Vec2 {x: h, y: h }, 
+            Vec2 {x: -h, y: h }
         ]
     }
 }
@@ -39,8 +39,8 @@ impl HasAabb for Square {
         let h = self.side * 0.5;
 
         Aabb {
-            min: [c[0] - h, c[1] - h],
-            max: [c[0] + h, c[1] + h],
+            min: Vec2 {x: c.x - h, y: c.y - h},
+            max: Vec2 {x: c.x + h, y: c.y + h}
         }
     }
 }
@@ -48,10 +48,10 @@ impl SamplePoint for Square {
     fn sample_point(&self, rng: &mut impl Rng) -> Vec2 {
         let h = self.side * 0.5;
 
-        [
-            rng.random_range(-h..h),
-            rng.random_range(-h..h),
-        ]
+        Vec2 {
+           x: rng.random_range(-h..h),
+           y: rng.random_range(-h..h),
+        }
     }
 }
 
@@ -82,10 +82,22 @@ impl HasVertices for Rectangle {
         let h = self.height * 0.5;
 
         [
-            [-w , -h ], 
-            [ w , -h ],
-            [ w ,  h ], 
-            [-w , h ]
+            Vec2 {
+                x: -w,
+                y: -h 
+            }, 
+            Vec2 { 
+                x: w, 
+                y: -h 
+            },
+            Vec2 {
+                x: w,  
+                y: h 
+            }, 
+            Vec2{ 
+                x:-w, 
+                y: h 
+            }
         ]
     }
 }
@@ -97,18 +109,18 @@ impl HasAabb for Rectangle {
         let c = transform.center;
 
         Aabb {
-            min: [c[0] - hw, c[1] - hh],
-            max: [c[0] + hw, c[1] + hh],
+            min: Vec2 {x: c.x - hw, y: c.y - hh},
+            max: Vec2 {x: c.x + hw, y: c.y + hh},
         }
     }
 }
 
 impl SamplePoint for Rectangle {
     fn sample_point(&self, rng: &mut impl Rng) -> Vec2 {
-        [
-            rng.random_range(-self.width * 0.5..self.width * 0.5),
-            rng.random_range(-self.height * 0.5..self.height * 0.5),
-        ]
+        Vec2 {
+           x: rng.random_range(-self.width * 0.5..self.width * 0.5),
+           y: rng.random_range(-self.height * 0.5..self.height * 0.5),
+        }
     }
 }
 
@@ -141,10 +153,10 @@ impl HasVertices for Rhombus {
         let [d1, d2] = self.diagonals();
 
         [
-            [-d1 * 0.5, 0.0],
-            [0.0, d2 * 0.5],
-            [d1 * 0.5, 0.0],
-            [0.0, -d2 * 0.5],
+            Vec2 { x: -d1 * 0.5,y: 0.0},
+            Vec2 { x: 0.0, y: d2 * 0.5},
+            Vec2 { x: d1 * 0.5, y: 0.0},
+            Vec2 { x: 0.0, y: -d2 * 0.5},
         ]
     }
 }
@@ -157,8 +169,14 @@ impl HasAabb for Rhombus {
         let half_d2 = self.side * (self.angle * 0.5).sin();
 
         Aabb {
-            min: [c[0] - half_d1, c[1] - half_d2],
-            max: [c[0] + half_d1, c[1] + half_d2],
+            min: Vec2 {
+                x: c.x - half_d1, 
+                y: c.y - half_d2
+            },
+            max: Vec2 {
+                x: c.x + half_d1, 
+                y: c.y + half_d2
+            },
         }
     }
 }

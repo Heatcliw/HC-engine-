@@ -10,4 +10,4 @@ pub mod world;
 pub use fluids::sph::*;
 pub use material::*;
 pub use world::*;
-pub use math::{constant, geometry::{Shape, Circle,Rectangle,Rhombus,Square,Ellipse,Polygon}, kernel, vec2};
+pub use math::{constant, geometry::{Shape, Circle,Rectangle,Rhombus,Square,Ellipse,Polygon, Point, MultiPoint}, kernel, vec2};
