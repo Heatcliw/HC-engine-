@@ -1,0 +1,18 @@
+[package]
+name = "hc"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+ron.workspace = true
+log.workspace = true
+rand.workspace = true
+rayon = { version = "1.10", optional = true }
+env_logger = { version = "0.11", optional = true }
+
+[features]
+default = []
+parallel = ["dep:rayon"]
+logger = ["dep:env_logger"]

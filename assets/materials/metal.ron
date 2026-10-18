@@ -8,11 +8,12 @@
     ),
 
     acoustics: (
-        absorption: 0.001,
+        absorption: ( low: 0.05, mid: 0.05, high: 0.05,),
         diffusion: 0.05,
         acoustic_impedance: 20.0,
         reflectivity: 0.99,
         damping: 0.001,
+        transmission: 0.05,
     ),
 
     fluid: None,

@@ -1,0 +1,9 @@
+[package]
+name = "hc-examples"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+hc = { path = "../core", features = ["logger"] }
+log.workspace = true

@@ -1,0 +1,9 @@
+[package]
+name = "hc-bevy"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+hc = { path = "../../core", features =["logger"] }
+bevy = "0.16"            # версию подберите под свой проект
+env_logger = "0.11"
